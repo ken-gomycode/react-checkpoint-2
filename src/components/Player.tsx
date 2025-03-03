@@ -1,16 +1,12 @@
 import { Card } from "react-bootstrap";
+import {PlayerType} from "../types.ts";
+import {FC} from "react";
 
-const Player = ({
-                  name = "Unknown Player",
-                  team = "Unknown Team",
-                  nationality = "Unknown",
-                  jerseyNumber = "00",
-                  age = "N/A",
-                  imageUrl = "https://via.placeholder.com/150",
-                }) => {
+const Player: FC<PlayerType> = (props) => {
+  const { name, age, nationality, jerseyNumber, imageUrl, team } = props;
   return (
     <Card style={{ width: "18rem", margin: "10px", textAlign: "center" }}>
-      <Card.Img variant="top" src={imageUrl} alt={name} />
+      <Card.Img variant="top" height={250} width={'100%'} style={{ objectFit: 'cover' }} src={imageUrl} alt={name} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>
